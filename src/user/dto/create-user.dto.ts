@@ -2,13 +2,10 @@ import { IsString, IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
 import { Role } from 'src/auth/enum/role.enum';
 
 export class CreateUserDto {
-    @IsNotEmpty()
-    @IsString()
-    firstName: string;
 
     @IsNotEmpty()
     @IsString()
-    lastName: string;
+    username: string;
 
     @IsNotEmpty()
     @IsEmail()
