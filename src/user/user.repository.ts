@@ -22,6 +22,7 @@ export class UserRepository {
         return this.repository.find();
     }
 
+
     async findOne(condition: any): Promise<User> {
         const user = await this.repository.findOne(condition);
         if (!user) {
@@ -29,6 +30,7 @@ export class UserRepository {
         }
         return user;
     }
+
 
     async findOneByEmail(email: string): Promise<User> {
         const user = await this.repository.findOne({ where: { email } });
@@ -38,7 +40,12 @@ export class UserRepository {
         return user;
     }
 
+    async findByEmail(email: string): Promise<User | null> {
+        return this.repository.findOne({ where: { email } });
+    }
+
     remove(user: User): Promise<User> {
         return this.repository.remove(user);
     }
 }
+
